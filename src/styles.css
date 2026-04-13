@@ -94,6 +94,17 @@ h1 {
   line-height: 1.68;
 }
 
+.shop-link {
+  width: fit-content;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .note,
 .finds {
   display: grid;

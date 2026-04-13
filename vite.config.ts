@@ -1,5 +1,14 @@
 import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
-  base: '/papero/'
+  base: '/papero/',
+  build: {
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('index.html', import.meta.url)),
+        shop: fileURLToPath(new URL('shop/index.html', import.meta.url))
+      }
+    }
+  }
 });

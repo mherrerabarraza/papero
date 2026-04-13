@@ -1,5 +1,5 @@
 const CACHE_NAME = 'papero-v1';
-const APP_SHELL = ['/papero/', '/papero/icon.svg', '/papero/manifest.webmanifest'];
+const APP_SHELL = ['/papero/', '/papero/shop/', '/papero/icon.svg', '/papero/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

@@ -49,6 +49,7 @@ app.innerHTML = `
           Stationery, desk finds and curious little pieces. The shop opens soon;
           the table is still being arranged.
         </p>
+        <a class="shop-link" href="/papero/shop/">View the shop demo</a>
       </div>
     </section>
 
