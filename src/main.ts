@@ -17,22 +17,22 @@ type Find = {
 };
 
 const launchStatus: LaunchStatus[] = [
-  { label: 'Tienda', value: 'En pausa' },
-  { label: 'Mesa', value: 'Objetos pequenos' },
-  { label: 'Apertura', value: 'Pronto, pero sin correr' }
+  { label: 'Shop', value: 'Paused' },
+  { label: 'Table', value: 'Small things' },
+  { label: 'Opening', value: 'Soon, without rushing' }
 ];
 
 const finds: Find[] = [
-  { name: 'Libretas raras', detail: 'Para listas, dibujos y planes que cambian.' },
-  { name: 'Clips con caracter', detail: 'Pequenos, utiles, un poco absurdos.' },
-  { name: 'Papeles de color', detail: 'Para notas que no quieren ser grises.' },
-  { name: 'Sellos y tintas', detail: 'Cosas simples para dejar una marca.' }
+  { name: 'Odd notebooks', detail: 'For lists, sketches and plans that change.' },
+  { name: 'Clips with character', detail: 'Small, useful, slightly silly.' },
+  { name: 'Coloured paper', detail: 'For notes that refuse to be grey.' },
+  { name: 'Stamps and ink', detail: 'Simple things for leaving a mark.' }
 ];
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
 if (!app) {
-  throw new Error('No se encontro el contenedor de la aplicacion.');
+  throw new Error('The app container was not found.');
 }
 
 app.innerHTML = `
@@ -40,39 +40,39 @@ app.innerHTML = `
     <section class="hero" aria-labelledby="page-title">
       <img
         src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1800&q=82"
-        alt="Cuaderno abierto sobre una mesa de trabajo"
+        alt="Open notebook on a work table"
       />
       <div class="hero-copy">
         <p class="eyebrow">Papero</p>
-        <h1 id="page-title">Objetos pequenos para dias comunes.</h1>
+        <h1 id="page-title">Small things for ordinary days.</h1>
         <p class="lede">
-          Papeleria, hallazgos de escritorio y piezas curiosas. La tienda abre
-          pronto; la mesa todavia se esta ordenando.
+          Stationery, desk finds and curious little pieces. The shop opens soon;
+          the table is still being arranged.
         </p>
       </div>
     </section>
 
-    <section class="note" aria-label="Nota del artista">
-      <p class="kicker">La idea</p>
+    <section class="note" aria-label="A note on the idea">
+      <p class="kicker">The idea</p>
       <p>
-        Una tienda pequena para mirar lento: cuadernos, clips, papeles, sellos,
-        sobres, cosas utiles y alguna cosa que no necesita explicarse.
+        A small shop for slow looking: notebooks, clips, papers, stamps,
+        envelopes, useful things and the occasional thing that needs no excuse.
       </p>
       <p>
-        Un poco tienda, un poco cajon de escritorio, un poco regalo inesperado.
+        Part shop, part desk drawer, part unexpected gift.
       </p>
-      <form class="notify" aria-label="Recibir aviso">
-        <label for="email">Avisame cuando abra</label>
+      <form class="notify" aria-label="Receive an opening note">
+        <label for="email">Tell me when it opens</label>
         <div class="notify-row">
-          <input id="email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" />
-          <button type="submit">Guardar</button>
+          <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" />
+          <button type="submit">Save</button>
         </div>
         <p class="form-note" aria-live="polite"></p>
       </form>
     </section>
 
-    <section class="finds" aria-label="Hallazgos de Papero">
-      <p class="kicker">En la mesa</p>
+    <section class="finds" aria-label="Papero finds">
+      <p class="kicker">On the table</p>
       <div class="finds-list">
         ${finds
           .map(
@@ -88,7 +88,7 @@ app.innerHTML = `
       </div>
     </section>
 
-    <section class="status" aria-label="Estado de apertura">
+    <section class="status" aria-label="Opening status">
       ${launchStatus
         .map(
           (item) => `
@@ -113,10 +113,10 @@ form?.addEventListener('submit', (event) => {
   const email = String(data.get('email') ?? '').trim();
 
   if (!email) {
-    note!.textContent = 'Deja tu email y te avisamos.';
+    note!.textContent = 'Leave your email and we will let you know.';
     return;
   }
 
-  note!.textContent = 'Guardado. Te avisaremos cuando Papero abra.';
+  note!.textContent = 'Saved. We will let you know when Papero opens.';
   form.reset();
 });
