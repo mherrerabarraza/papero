@@ -45,8 +45,8 @@ input {
   inset: 0;
   content: "";
   background:
-    linear-gradient(90deg, rgba(12, 17, 17, 0.72), rgba(12, 17, 17, 0.18)),
-    linear-gradient(0deg, rgba(12, 17, 17, 0.52), rgba(12, 17, 17, 0));
+    linear-gradient(90deg, rgba(16, 18, 16, 0.72), rgba(16, 18, 16, 0.12)),
+    linear-gradient(0deg, rgba(16, 18, 16, 0.5), rgba(16, 18, 16, 0));
 }
 
 .hero img {
@@ -77,7 +77,7 @@ input {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: 12ch;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 6.7rem;
@@ -176,6 +176,74 @@ h1 {
   line-height: 1.5;
 }
 
+.finds {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.35fr) minmax(0, 1fr);
+  gap: clamp(20px, 6vw, 92px);
+  padding: clamp(40px, 7vw, 92px) clamp(20px, 7vw, 104px);
+  border-bottom: 1px solid #d9ded8;
+  background: #ffffff;
+}
+
+.finds .kicker {
+  color: #d34055;
+}
+
+.finds-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: #d9ded8;
+  border: 1px solid #d9ded8;
+}
+
+.find-item {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 260px;
+  padding: 22px;
+  background: #ffffff;
+}
+
+.find-item span {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #171717;
+  border-radius: 50%;
+  background: #f3d34a;
+}
+
+.find-item:nth-child(2) span {
+  background: #ff7a66;
+}
+
+.find-item:nth-child(3) span {
+  background: #6ac4c7;
+}
+
+.find-item:nth-child(4) span {
+  background: #b9dc6a;
+}
+
+.find-item h2 {
+  max-width: 9ch;
+  margin: 0;
+  color: #171717;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.find-item p {
+  margin: 0;
+  color: #4b514c;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
 .status {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -243,6 +311,20 @@ h1 {
     grid-column: 1;
   }
 
+  .finds {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 42px 20px 48px;
+  }
+
+  .finds-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .find-item {
+    min-height: 220px;
+  }
+
   .status {
     grid-template-columns: 1fr;
   }
@@ -270,5 +352,13 @@ h1 {
 
   .notify button {
     width: 100%;
+  }
+
+  .finds-list {
+    grid-template-columns: 1fr;
+  }
+
+  .find-item {
+    min-height: 188px;
   }
 }

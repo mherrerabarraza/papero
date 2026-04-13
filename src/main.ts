@@ -11,10 +11,22 @@ type LaunchStatus = {
   value: string;
 };
 
+type Find = {
+  name: string;
+  detail: string;
+};
+
 const launchStatus: LaunchStatus[] = [
   { label: 'Tienda', value: 'En pausa' },
-  { label: 'Trabajo', value: 'Papeles, tintas y pruebas' },
-  { label: 'Apertura', value: 'Sin prisa' }
+  { label: 'Mesa', value: 'Objetos pequenos' },
+  { label: 'Apertura', value: 'Pronto, pero sin correr' }
+];
+
+const finds: Find[] = [
+  { name: 'Libretas raras', detail: 'Para listas, dibujos y planes que cambian.' },
+  { name: 'Clips con caracter', detail: 'Pequenos, utiles, un poco absurdos.' },
+  { name: 'Papeles de color', detail: 'Para notas que no quieren ser grises.' },
+  { name: 'Sellos y tintas', detail: 'Cosas simples para dejar una marca.' }
 ];
 
 const app = document.querySelector<HTMLDivElement>('#app');
@@ -32,22 +44,22 @@ app.innerHTML = `
       />
       <div class="hero-copy">
         <p class="eyebrow">Papero</p>
-        <h1 id="page-title">Papeles para volver a mirar.</h1>
+        <h1 id="page-title">Objetos pequenos para dias comunes.</h1>
         <p class="lede">
-          La tienda esta cerrada mientras nace una coleccion pequena de cuadernos,
-          laminas y objetos de escritorio.
+          Papeleria, hallazgos de escritorio y piezas curiosas. La tienda abre
+          pronto; la mesa todavia se esta ordenando.
         </p>
       </div>
     </section>
 
     <section class="note" aria-label="Nota del artista">
-      <p class="kicker">Desde el taller</p>
+      <p class="kicker">La idea</p>
       <p>
-        Papero empieza como una mesa en silencio: hojas sueltas, marcas de tinta,
-        sobres encontrados y pruebas que todavia no tienen nombre.
+        Una tienda pequena para mirar lento: cuadernos, clips, papeles, sellos,
+        sobres, cosas utiles y alguna cosa que no necesita explicarse.
       </p>
       <p>
-        Pronto sera una tienda. Por ahora es un cuaderno abierto.
+        Un poco tienda, un poco cajon de escritorio, un poco regalo inesperado.
       </p>
       <form class="notify" aria-label="Recibir aviso">
         <label for="email">Avisame cuando abra</label>
@@ -57,6 +69,23 @@ app.innerHTML = `
         </div>
         <p class="form-note" aria-live="polite"></p>
       </form>
+    </section>
+
+    <section class="finds" aria-label="Hallazgos de Papero">
+      <p class="kicker">En la mesa</p>
+      <div class="finds-list">
+        ${finds
+          .map(
+            (item) => `
+              <article class="find-item">
+                <span></span>
+                <h2>${item.name}</h2>
+                <p>${item.detail}</p>
+              </article>
+            `
+          )
+          .join('')}
+      </div>
     </section>
 
     <section class="status" aria-label="Estado de apertura">
