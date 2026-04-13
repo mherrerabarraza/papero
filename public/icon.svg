@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Papero">
+  <rect width="512" height="512" rx="96" fill="#f4f8f1"/>
+  <path fill="#2f5f48" d="M142 162h228l-22 222H164L142 162Z"/>
+  <path fill="#ffffff" d="M183 132h146l18 54H165l18-54Z"/>
+  <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="24" d="M205 222c12 30 35 46 68 46s56-16 68-46"/>
+</svg>
