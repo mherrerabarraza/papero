@@ -1,7 +1,10 @@
 import './styles.css';
-import { registerSW } from 'virtual:pwa-register';
 
-registerSW({ immediate: true });
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register('/papero/sw.js', { scope: '/papero/' });
+  });
+}
 
 type LaunchStatus = {
   label: string;
